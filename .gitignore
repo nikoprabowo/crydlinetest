@@ -1,0 +1,19 @@
+# .gitignore
+# Credential & Auth
+*.json
+
+# Airflow
+airflow/upload_to_data/ingest/temp_raw_data/
+
+# Spark temporary
+spark/*.log
+spark/__pycache__/
+
+# Python
+*.pyc
+__pycache__/
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/

@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: your_dbt.your_data
+    schema: your_data
+    tables:
+      - name: btc_mediumrare
+      - name: eth_mediumrare

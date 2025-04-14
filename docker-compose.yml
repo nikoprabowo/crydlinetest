@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  terraform:
+    build: ./terraform
+    container_name: terraform
+    volumes:
+      - ./terraform:/workspace
+      # 🔧 Uncomment and set the path to your service account JSON key
+      # - /full/path/to/your-sa-key.json:/workspace/auth/your-sa-key.json
+    working_dir: /workspace
+    environment:
+      # 🔧 Uncomment and set the environment variable to point to your SA key
+      # - GOOGLE_APPLICATION_CREDENTIALS=/workspace/auth/your-sa-key.json
+    tty: true
+
+  dbt:
+    build: ./dbt
+    container_name: dbt
+    volumes:
+      - ./dbt:/workspace
+      # 🔧 Mount Spark scripts directory if needed
+      # - /full/path/to/your/spark:/app/spark
+
+      # 🔧 Mount ingestion scripts directory if needed
+      # - /full/path/to/your/ingest:/app/ingest
+
+      # 🔧 Mount temporary data directory if needed
+      # - /full/path/to/temp_raw_data:/app/temp_raw_data
+
+      # 🔧 Uncomment and set the path to your service account JSON key
+      # - /full/path/to/your-sa-key.json:/workspace/auth/your-sa-key.json
+    working_dir: /workspace
+    environment:
+      # 🔧 Uncomment and set the environment variable to point to your SA key
+      # - GOOGLE_APPLICATION_CREDENTIALS=/workspace/auth/your-sa-key.json
+    tty: true

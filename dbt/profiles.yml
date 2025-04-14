@@ -1,0 +1,14 @@
+crydlinetest_dbt:
+  outputs:
+    dev:
+      dataset: your_data
+      job_execution_timeout_seconds: 60
+      job_retries: 1
+      keyfile: /home/airflow/gcs/dags/scripts/dbt/auth/your-sa-key.json
+      location: asia-southeast1
+      method: service-account
+      priority: interactive
+      project: yourprojectid
+      threads: 2
+      type: bigquery
+  target: dev
